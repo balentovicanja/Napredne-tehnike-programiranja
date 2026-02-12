@@ -1,0 +1,66 @@
+[
+  {
+    "id": "a85a3fa2-cde3-4373-a59e-892c9a86498a",
+    "amount": "1300",
+    "category": "Plaća",
+    "date": "2026-02-11T00:00:00",
+    "description": "mjesečna plaća",
+    "type": "income"
+  },
+  {
+    "id": "54f359c1-c09d-458e-bf36-17a2689ff755",
+    "amount": "55.99",
+    "category": "Zabava",
+    "date": "2026-02-11T00:00:00",
+    "description": "izlazak",
+    "type": "expense"
+  },
+  {
+    "id": "483b7496-ba2a-4aa9-a504-b707e59bbd49",
+    "amount": "14",
+    "category": "Zdravstvo",
+    "date": "2026-02-11T00:00:00",
+    "description": "lijek",
+    "type": "expense"
+  },
+  {
+    "id": "8a7c1bc0-9af1-40ae-815e-6cb431aa5cea",
+    "amount": "35.99",
+    "category": "Stanovanje",
+    "date": "2026-02-12T00:00:00",
+    "description": "režije",
+    "type": "expense"
+  },
+  {
+    "id": "cc211529-d483-4675-96bf-20ecbcd887d3",
+    "amount": "50",
+    "category": "Ostalo",
+    "date": "2026-02-12T00:00:00",
+    "description": "poklon",
+    "type": "income"
+  },
+  {
+    "id": "8b3fc65e-049e-4ce3-9870-06cfd05cd00e",
+    "amount": "5",
+    "category": "Transport",
+    "date": "2026-02-12T00:00:00",
+    "description": "bus",
+    "type": "expense"
+  },
+  {
+    "id": "1409e092-ba92-4a2e-b82d-d4ed5a91647a",
+    "amount": "87",
+    "category": "Ostalo",
+    "date": "2026-02-12T00:00:00",
+    "description": "poklon",
+    "type": "expense"
+  },
+  {
+    "id": "0b23a086-8c6e-4472-a4f2-020d1963d1ca",
+    "amount": "250",
+    "category": "Stanovanje",
+    "date": "2026-02-05T00:00:00",
+    "description": "stanarina",
+    "type": "expense"
+  }
+]
