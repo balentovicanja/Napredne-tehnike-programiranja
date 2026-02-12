@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """
 Filteri za dinamičko filtriranje transakcija korištenjem closures.
 """

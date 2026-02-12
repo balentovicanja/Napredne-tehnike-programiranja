@@ -3,6 +3,8 @@ Podatkovni modeli za aplikaciju.
 
 """
 
+from __future__ import annotations
+
 from dataclasses import dataclass, asdict
 from datetime import datetime
 from typing import Literal

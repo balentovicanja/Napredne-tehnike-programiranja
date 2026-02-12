@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """
 Rad sa transakcijama i glavne funkcionalnosti aplikacije.
 """

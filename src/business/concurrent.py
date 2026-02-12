@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """
 - konkurentno programiranje za background zadatke
 - omogućuje izvršavanje autosave i izračun statistike
