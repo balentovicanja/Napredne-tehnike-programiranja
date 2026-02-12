@@ -10,7 +10,7 @@ Aplikacija zahtjeva **Python 3.9 ili noviju verziju**.
 Finance Tracker je desktop aplikacija za praćenje osobnih prihoda i troškova. Aplikacija omogućava korisnicima da:
 
 - **Dodavaju transakcije** - Evidentiranje novih prihoda i troškova sa iznosom, kategorijom, opisom i datumom
-- **Pregledavaju transakcije** - Prikaz svih transakcija u tbalici sa mogućnošću sortiranja
+- **Pregledavaju transakcije** - Prikaz svih transakcija u tablici sa mogućnošću sortiranja
 - **Filtriraju transakcije** - Filtriranje po kategoriji i tipu (prihod/trošak)
 - **Brišu transakcije** - Uklanjanje nepotrebnih zapisa
 - **Prate statistiku** - Prikaz ukupnih prihoda, troškova, broja transakcija i detaljnog pregleda po kategorijama
