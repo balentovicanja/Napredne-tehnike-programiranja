@@ -14,13 +14,13 @@ Finance Tracker je desktop aplikacija za praćenje osobnih prihoda i troškova. 
 - **Filtriraju transakcije** - Filtriranje po kategoriji i tipu (prihod/trošak)
 - **Brišu transakcije** - Uklanjanje nepotrebnih zapisa
 - **Prate statistiku** - Prikaz ukupnih prihoda, troškova, broja transakcija i detaljnog pregleda po kategorijama
-- **Automatski čuvaju podatke** - Automatsko spremanje podataka u JSON datoteku
+- **Autosave podataka** - Automatsko spremanje podataka u JSON datoteku
 
 Aplikacija koristi grafičko sučelje (Tkinter) i podatke sprema u JSON datoteku u `data/expenses.json`.
 
 ### Predefinirane Kategorije
 
-Aplikacija dolazi sa sljedećim kategorijama:
+Aplikacija ima sljedeće kategorije:
 - Hrana
 - Prijevoz
 - Zabava
@@ -41,7 +41,7 @@ venv\Scripts\activate
 
 ### Instalacija Ovisnosti
 
-Nakon aktiviranja virtuelnog okruženja, instalirajte sve potrebne pakete:
+Nakon aktiviranja virtualnog okruženja, instalirajte sve potrebne pakete:
 ```bash
 pip install -r requirements.txt
 ```
@@ -50,7 +50,7 @@ pip install -r requirements.txt
 
 Aplikacija koristi sljedeće glavne pakete:
 
-- **Tkinter** - Za grafički interfejs (uglavnom uključen sa Pythonom)
+- **Tkinter** - Za grafičko sučelje (uglavnom uključen sa Pythonom)
 - **python-dateutil** - Za rad sa datumima
 - **typing-extensions** - Za dodatne type hint funkcionalnosti
 - **pytest** - Za testiranje
@@ -68,17 +68,15 @@ python main.py
 
 -osnovna verzija aplikacije gdje se podaci spremaju nakon svake akcije
 
-#### 2. main_async.py - Konkurentna Verzija (Preporučena)
+#### 2. main_async.py - Konkurentna Verzija (koju ovdje koristimo)
 
 ```bash
 python main_async.py
 ```
 
 Ovo je verzija sa konkurentnim izvršavanjem background zadataka:
-- **Automatsko čuvanje** - automatsko spremanje podataka u pozadini svakih 30s
+- **Autosave** - automatsko spremanje podataka u pozadini svakih 30s
 - **Realtime statistika** - ažuriranje statistike u pozadini svakih 5s
-
-Preporučuje se korištenje `main_async.py` za bolji korisnički doživljaj, posebno tijekom rada sa većim količinama podataka.
 
 ### Pokretanje Testova
 
