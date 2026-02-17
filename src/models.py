@@ -36,7 +36,25 @@ class Transaction:
     type: TransactionType
     
     def to_dict(self) -> dict:
-        """transakcija --> rječnik za pohranu"""
+        """
+        transakcija --> rjecnik za pohranu
+
+        # Doctest: serialize a transaction
+        >>> from decimal import Decimal
+        >>> from datetime import datetime
+        >>> t = Transaction(
+        ...     id="1",
+        ...     amount=Decimal("10.50"),
+        ...     category="Food",
+        ...     date=datetime(2023, 1, 2, 3, 4, 5),
+        ...     description="lunch",
+        ...     type="expense"
+        ... )
+        >>> t.to_dict()["amount"]
+        '10.50'
+        >>> t.to_dict()["date"]
+        '2023-01-02T03:04:05'
+        """
         return {
             'id': self.id,
             'amount': str(self.amount),
@@ -48,7 +66,24 @@ class Transaction:
     
     @classmethod
     def from_dict(cls, data: dict) -> 'Transaction':
-        """Kreira transakciju iz rječnika."""
+        """
+        Kreira transakciju iz rjecnika.
+
+        # Doctest: parse amount and date types
+        >>> data = {
+        ...     "id": "1",
+        ...     "amount": "12.00",
+        ...     "category": "Food",
+        ...     "date": "2023-01-02T03:04:05",
+        ...     "description": "x",
+        ...     "type": "expense"
+        ... }
+        >>> t = Transaction.from_dict(data)
+        >>> t.amount
+        Decimal('12.00')
+        >>> t.date.isoformat()
+        '2023-01-02T03:04:05'
+        """
         data_copy = data.copy()
         data_copy['amount'] = Decimal(data_copy['amount'])
         data_copy['date'] = datetime.fromisoformat(data_copy['date'])
@@ -102,11 +137,34 @@ class TransactionStats:
     
     @property
     def balance(self) -> Decimal:
-        """Vraća bilancu (prihodi - troškovi)."""
+        """
+        Vraca bilancu (prihodi - troskovi).
+
+        # Doctest: balance calculation
+        >>> from decimal import Decimal
+        >>> stats = TransactionStats(total_income=Decimal("20"), total_expense=Decimal("5"))
+        >>> stats.balance
+        Decimal('15')
+        """
         return self.total_income - self.total_expense
     
     def to_dict(self) -> dict:
-        """statistika --> rječnik."""
+        """
+        statistika --> rjecnik.
+
+        # Doctest: serialize stats with category totals
+        >>> from decimal import Decimal
+        >>> stats = TransactionStats(
+        ...     total_income=Decimal("20"),
+        ...     total_expense=Decimal("5"),
+        ...     transaction_count=2,
+        ...     by_category={"Food": Decimal("5")}
+        ... )
+        >>> stats.to_dict()["balance"]
+        '15'
+        >>> stats.to_dict()["by_category"]["Food"]
+        '5'
+        """
         return {
             'total_income': str(self.total_income),
             'total_expense': str(self.total_expense),

@@ -138,6 +138,48 @@ class ExpenseManager:
         self,
         transactions: list[Transaction] | None = None
     ) -> TransactionStats:
+        """
+        # Doctest: calculate totals and category sums
+        >>> from decimal import Decimal
+        >>> from datetime import datetime
+        >>> class DummyStorage:
+        ...     def __init__(self, items):
+        ...         self._items = items
+        ...     def load(self):
+        ...         return list(self._items)
+        ...     def add(self, transaction):
+        ...         pass
+        ...     def update(self, transaction):
+        ...         pass
+        ...     def delete(self, transaction_id):
+        ...         pass
+        >>> t1 = Transaction(
+        ...     id="1",
+        ...     amount=Decimal("10"),
+        ...     category="Food",
+        ...     date=datetime(2023, 1, 1, 10, 0, 0),
+        ...     description="a",
+        ...     type="expense"
+        ... )
+        >>> t2 = Transaction(
+        ...     id="2",
+        ...     amount=Decimal("25"),
+        ...     category="Salary",
+        ...     date=datetime(2023, 1, 2, 10, 0, 0),
+        ...     description="b",
+        ...     type="income"
+        ... )
+        >>> manager = ExpenseManager(DummyStorage([t1, t2]))
+        >>> stats = manager.calculate_stats()
+        >>> stats.total_income
+        Decimal('25')
+        >>> stats.total_expense
+        Decimal('10')
+        >>> stats.transaction_count
+        2
+        >>> stats.by_category["Food"]
+        Decimal('10')
+        """
         transactions = transactions or self._transactions
         
         total_income = Decimal("0")

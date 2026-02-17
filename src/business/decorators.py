@@ -10,6 +10,22 @@ F = TypeVar('F', bound=Callable[..., Any])
 def validate_amount(min_amount: Decimal = Decimal("0")) -> Callable[[F], F]:
     """
     Provjera da je iznos pozitivan broj.
+
+    # Doctest: accepts value above minimum
+    >>> @validate_amount(Decimal("0.01"))
+    ... def f(amount):
+    ...     return amount
+    >>> f(1)
+    1
+
+    # Doctest: raises on too small value
+    >>> @validate_amount(Decimal("1"))
+    ... def g(amount):
+    ...     return amount
+    >>> g(0)
+    Traceback (most recent call last):
+    ...
+    ValueError: Iznos mora biti veći od 1. Dobiveno: 0
     """
     def decorator(func: F) -> F:
         @wraps(func)
@@ -62,6 +78,15 @@ def log_operation(operation_name: str) -> Callable[[F], F]:
 def require_non_empty(attribute_name: str) -> Callable[[F], F]:
     """
     Osigurava da je atribut neprazan string.
+
+    # Doctest: raises on empty string
+    >>> @require_non_empty("name")
+    ... def f(name):
+    ...     return name
+    >>> f(name="  ")
+    Traceback (most recent call last):
+    ...
+    ValueError: name ne može biti prazan
     """
     def decorator(func: F) -> F:
         @wraps(func)
